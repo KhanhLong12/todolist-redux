@@ -23,6 +23,13 @@ export const deleteItem = (id) => {
     }
 }
 
+export const editItem = (id, text) => {
+    return {
+        type: "DELETE_ITEM",
+        payload: id
+    }
+}
+
 
 // bien doi state theo mong muon
 export const ToDoListReducer = (state = initialState, action) => {

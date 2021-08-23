@@ -12,6 +12,7 @@ const ToDoList = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         addItem(text);
+        e.target.reset();
     }
 
     const handleDeleteItem = (id) => {
@@ -26,8 +27,12 @@ const ToDoList = (props) => {
             <ul>
                 { items.map((value, index) => (
                     <div>
-                        <li key = {index} style = {{ float:'left'}}>{value.title}</li>
-                        <button style= {{ color: "red", marginLeft: "20px"}} onClick={ (id) => handleDeleteItem(value.id) }>
+                        <li style = {{ float:'left'}}>{value.title}</li>
+                        <input type="hidden" value={value.title} />
+                        <button style= {{ color: "green", marginLeft: "10px"}}>
+                            edit
+                         </button>
+                        <button style= {{ color: "red", marginLeft: "10px"}} onClick={ () => handleDeleteItem(value.id) }>
                             delete
                             </button>
                    </div>
